@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TV Live Demo</title>
+    <title>极视云直播 - TV Live</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.20/dist/hls.min.js"></script>
   </head>
   <body>
     <div class="page-shell">
@@ -41,9 +42,9 @@
       <section class="hero">
         <div class="hero-copy">
           <span class="eyebrow">HOT LIVE</span>
-          <h1>看全球体育、新闻与娱乐，尽在一屏</h1>
+          <h1>全球直播内容，一站式观看体验</h1>
           <p>
-            集成频道导航、节目推荐、实时状态、回看列表和一键切台体验，适合电视直播网站原型展示。
+            面向电视端的直播节目页，支持频道切换、节目推荐、高清播放器、实时状态显示与内容聚合。适合正式产品原型和直播源接入测试。
           </p>
           <div class="hero-actions">
             <button class="primary-btn">开始直播</button>
@@ -70,11 +71,16 @@
       <main class="content-grid">
         <section class="player-panel">
           <div class="player-header">
-            <div class="live-tag">LIVE</div>
-            <div>
-              <div class="channel-title">CCTV-5 体育</div>
-              <div class="channel-meta">高清 · 1080P · 中国大陆</div>
+            <div class="live-tag-group">
+              <span class="live-tag">LIVE</span>
+              <span class="signal-bars" aria-label="信号强度">▇▇▇▇</span>
             </div>
+
+            <div class="channel-headline">
+              <div id="channelTitle" class="channel-title">CCTV-5 体育</div>
+              <div id="channelMeta" class="channel-meta">高清 · 1080P · 中国大陆</div>
+            </div>
+
             <div class="player-actions">
               <button>全屏</button>
               <button>倍速</button>
@@ -82,12 +88,13 @@
           </div>
 
           <div class="video-stage">
+            <video id="videoPlayer" class="video-player" controls playsinline autoplay muted></video>
             <div class="video-overlay">
-              <div class="play-circle">▶</div>
+              <div class="play-indicator">▶</div>
             </div>
             <div class="video-info">
-              <span>比赛进行中</span>
-              <span>02:14:28</span>
+              <span id="programStatus">比赛进行中</span>
+              <span id="currentTime">00:00:00</span>
             </div>
           </div>
 
@@ -105,7 +112,6 @@
             <h2>正在直播</h2>
             <span class="status-dot">●</span>
           </div>
-
           <div id="channelList" class="channel-list"></div>
         </aside>
       </main>
