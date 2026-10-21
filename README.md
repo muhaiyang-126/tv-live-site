@@ -1,2 +1,42 @@
-# tv-live-site
-TV live streaming website starter with mockup and source configuration
+# TV Live Demo
+
+这是一个用于展示电视直播网站框架的前端原型，适合做演示、评审和后续直播源接入的前置界面。
+
+## 运行方式
+
+```bash
+cd /path/to/repo
+python3 -m http.server 8000
+```
+
+然后打开：
+
+```text
+http://localhost:8000
+```
+
+## 功能说明
+
+- 顶部导航和搜索区
+- 大屏直播播放器区域
+- 直播频道列表
+- 节目单卡片
+- 深色电视风 UI
+- 适配桌面和移动端布局
+
+## 后续扩展
+
+- 接真实 HLS / MPEG-TS 流
+- 加入分组频道列表与筛选
+- 接入后台直播源管理
+- 增加收藏、回看、点播等模块
+
+## 直播源建议
+
+演示阶段使用了示例频道数据，正式接入时可替换为稳定的 HLS 流地址，例如：
+
+- CCTV / 国内卫视的稳定源（由运营商或平台统一提供）
+- ESPN、BBC、NHK 等国际频道的官方流
+- 通过 M3U8 播放器接入的合法直播源
+
+注意：请遵循平台/内容方的授权要求，避免违法违规直播源。
