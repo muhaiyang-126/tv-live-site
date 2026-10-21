@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>极视云直播 - 电视直播首页</title>
+    <title>极视云直播 - 电视节目首页</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -22,12 +22,12 @@
         </div>
 
         <nav class="main-nav" aria-label="主导航">
-          <a href="#" class="nav-item active">首页</a>
-          <a href="#" class="nav-item">直播</a>
-          <a href="#" class="nav-item">体育</a>
-          <a href="#" class="nav-item">电影</a>
-          <a href="#" class="nav-item">综艺</a>
-          <a href="#" class="nav-item">少儿</a>
+          <a href="#" class="nav-item active" data-view="首页">首页</a>
+          <a href="#" class="nav-item" data-view="直播">直播</a>
+          <a href="#" class="nav-item" data-view="电视剧">电视剧</a>
+          <a href="#" class="nav-item" data-view="电影">电影</a>
+          <a href="#" class="nav-item" data-view="综艺">综艺</a>
+          <a href="#" class="nav-item" data-view="动漫">动漫</a>
         </nav>
 
         <div class="toolbar">
@@ -35,7 +35,7 @@
             <span>⌕</span>
             <input type="text" value="CCTV 5 + NBA" aria-label="搜索频道" />
           </div>
-          <button class="user-pill">登录</button>
+          <button id="settingsButton" class="settings-btn">设置</button>
         </div>
       </header>
 
@@ -44,17 +44,17 @@
           <div class="panel-header">
             <div>
               <div class="eyebrow small">频道库</div>
-              <h2>频道列表</h2>
+              <h2 id="panelTitle">频道列表</h2>
             </div>
-            <button class="mini-btn">全部</button>
+            <button class="mini-btn" id="panelToggle">全部</button>
           </div>
 
-          <div class="filter-bar">
-            <button class="filter-btn active">全部</button>
-            <button class="filter-btn">体育</button>
-            <button class="filter-btn">新闻</button>
-            <button class="filter-btn">电影</button>
-            <button class="filter-btn">综艺</button>
+          <div class="filter-bar" id="filterBar">
+            <button class="filter-btn active" data-filter="全部">全部</button>
+            <button class="filter-btn" data-filter="体育">体育</button>
+            <button class="filter-btn" data-filter="新闻">新闻</button>
+            <button class="filter-btn" data-filter="电影">电影</button>
+            <button class="filter-btn" data-filter="综艺">综艺</button>
           </div>
 
           <div id="channelList" class="channel-list"></div>
@@ -64,8 +64,8 @@
           <section class="feature-panel">
             <div class="player-header">
               <div class="live-tag-group">
-                <span class="live-tag">LIVE</span>
-                <span class="status-text">HD 1080P</span>
+                <span class="live-tag" id="streamBadge">LIVE</span>
+                <span class="status-text" id="statusText">HD 1080P</span>
               </div>
               <div class="player-actions">
                 <button>全屏</button>
@@ -85,7 +85,7 @@
                   <div id="channelMeta" class="channel-meta">高清 · 1080P · 中国大陆</div>
                 </div>
                 <div class="info-right">
-                  <div class="chip">节目中</div>
+                  <div class="chip" id="programChip">节目中</div>
                   <div id="currentTime" class="live-time">00:00:00</div>
                 </div>
               </div>
@@ -102,49 +102,54 @@
 
           <section class="epg-panel">
             <div class="epg-header">
-              <h3>节目单</h3>
+              <h3 id="epgTitle">节目单</h3>
               <a href="#">查看全部</a>
             </div>
 
-            <div class="epg-grid">
-              <article class="epg-item active">
-                <div class="epg-time">19:00</div>
-                <div class="epg-text">
-                  <strong>新闻联播</strong>
-                  <span>CCTV-1</span>
-                </div>
-              </article>
-              <article class="epg-item">
-                <div class="epg-time">20:00</div>
-                <div class="epg-text">
-                  <strong>中国好声音</strong>
-                  <span>CCTV-3</span>
-                </div>
-              </article>
-              <article class="epg-item">
-                <div class="epg-time">21:00</div>
-                <div class="epg-text">
-                  <strong>NBA 直播</strong>
-                  <span>CCTV-5</span>
-                </div>
-              </article>
-              <article class="epg-item">
-                <div class="epg-time">22:30</div>
-                <div class="epg-text">
-                  <strong>电影频道</strong>
-                  <span>电影台</span>
-                </div>
-              </article>
-              <article class="epg-item">
-                <div class="epg-time">23:30</div>
-                <div class="epg-text">
-                  <strong>晚间综艺</strong>
-                  <span>BTV</span>
-                </div>
-              </article>
-            </div>
+            <div class="epg-grid" id="epgGrid"></div>
           </section>
         </main>
+      </div>
+    </div>
+
+    <div id="settingsModal" class="settings-modal hidden" aria-hidden="true">
+      <div class="settings-panel">
+        <div class="settings-header">
+          <h3>影视资源 API 设置</h3>
+          <button id="closeSettings" class="close-btn">✕</button>
+        </div>
+
+        <form id="apiConfigForm" class="settings-form">
+          <label>
+            <span>首页 API</span>
+            <input type="url" name="首页" placeholder="https://example.com/api/home.json" />
+          </label>
+          <label>
+            <span>直播 API</span>
+            <input type="url" name="直播" placeholder="https://example.com/api/live.json" />
+          </label>
+          <label>
+            <span>电视剧 API</span>
+            <input type="url" name="电视剧" placeholder="https://example.com/api/series.json" />
+          </label>
+          <label>
+            <span>电影 API</span>
+            <input type="url" name="电影" placeholder="https://example.com/api/movies.json" />
+          </label>
+          <label>
+            <span>综艺 API</span>
+            <input type="url" name="综艺" placeholder="https://example.com/api/variety.json" />
+          </label>
+          <label>
+            <span>动漫 API</span>
+            <input type="url" name="动漫" placeholder="https://example.com/api/anime.json" />
+          </label>
+
+          <div class="settings-actions">
+            <button type="button" id="resetApiConfig" class="secondary-btn">恢复默认</button>
+            <button type="submit" class="primary-btn">保存设置</button>
+          </div>
+        </form>
       </div>
     </div>
 
