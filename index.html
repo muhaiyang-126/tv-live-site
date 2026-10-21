@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>极视云直播 - 首页</title>
+    <title>极视云直播 - 电视直播首页</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -27,7 +27,7 @@
           <a href="#" class="nav-item">体育</a>
           <a href="#" class="nav-item">电影</a>
           <a href="#" class="nav-item">综艺</a>
-          <a href="#" class="nav-item">儿童</a>
+          <a href="#" class="nav-item">少儿</a>
         </nav>
 
         <div class="toolbar">
@@ -39,7 +39,7 @@
         </div>
       </header>
 
-      <div class="live-layout">
+      <div class="broadcast-layout">
         <aside class="channel-panel">
           <div class="panel-header">
             <div>
@@ -61,7 +61,7 @@
         </aside>
 
         <main class="main-panel">
-          <section class="featured-card">
+          <section class="feature-panel">
             <div class="player-header">
               <div class="live-tag-group">
                 <span class="live-tag">LIVE</span>
@@ -84,7 +84,10 @@
                   <div id="channelTitle" class="channel-title">CCTV-5 体育</div>
                   <div id="channelMeta" class="channel-meta">高清 · 1080P · 中国大陆</div>
                 </div>
-                <div id="currentTime" class="live-time">00:00:00</div>
+                <div class="info-right">
+                  <div class="chip">节目中</div>
+                  <div id="currentTime" class="live-time">00:00:00</div>
+                </div>
               </div>
             </div>
 
@@ -97,74 +100,48 @@
             </div>
           </section>
 
-          <section class="content-row">
-            <div class="mini-panel">
-              <div class="mini-header">
-                <h3>节目单</h3>
-                <a href="#">查看全部</a>
-              </div>
-
-              <div class="schedule-list">
-                <div class="schedule-item">
-                  <span class="schedule-time">19:00</span>
-                  <div>
-                    <strong>新闻联播</strong>
-                    <small>CCTV-1</small>
-                  </div>
-                </div>
-                <div class="schedule-item">
-                  <span class="schedule-time">20:00</span>
-                  <div>
-                    <strong>中国好声音</strong>
-                    <small>CCTV-3</small>
-                  </div>
-                </div>
-                <div class="schedule-item">
-                  <span class="schedule-time">21:00</span>
-                  <div>
-                    <strong>NBA 直播</strong>
-                    <small>CCTV-5</small>
-                  </div>
-                </div>
-                <div class="schedule-item">
-                  <span class="schedule-time">22:30</span>
-                  <div>
-                    <strong>电影频道</strong>
-                    <small>电影台</small>
-                  </div>
-                </div>
-              </div>
+          <section class="epg-panel">
+            <div class="epg-header">
+              <h3>节目单</h3>
+              <a href="#">查看全部</a>
             </div>
 
-            <div class="mini-panel">
-              <div class="mini-header">
-                <h3>热门推荐</h3>
-                <a href="#">更多</a>
-              </div>
-
-              <div class="recommend-list">
-                <div class="recommend-item">
-                  <div class="recommend-thumb thumb-one"></div>
-                  <div>
-                    <strong>赛事直播</strong>
-                    <small>体育 · 热门</small>
-                  </div>
+            <div class="epg-grid">
+              <article class="epg-item active">
+                <div class="epg-time">19:00</div>
+                <div class="epg-text">
+                  <strong>新闻联播</strong>
+                  <span>CCTV-1</span>
                 </div>
-                <div class="recommend-item">
-                  <div class="recommend-thumb thumb-two"></div>
-                  <div>
-                    <strong>时事新闻</strong>
-                    <small>新闻 · 实时</small>
-                  </div>
+              </article>
+              <article class="epg-item">
+                <div class="epg-time">20:00</div>
+                <div class="epg-text">
+                  <strong>中国好声音</strong>
+                  <span>CCTV-3</span>
                 </div>
-                <div class="recommend-item">
-                  <div class="recommend-thumb thumb-three"></div>
-                  <div>
-                    <strong>经典电影</strong>
-                    <small>电影 · 经典</small>
-                  </div>
+              </article>
+              <article class="epg-item">
+                <div class="epg-time">21:00</div>
+                <div class="epg-text">
+                  <strong>NBA 直播</strong>
+                  <span>CCTV-5</span>
                 </div>
-              </div>
+              </article>
+              <article class="epg-item">
+                <div class="epg-time">22:30</div>
+                <div class="epg-text">
+                  <strong>电影频道</strong>
+                  <span>电影台</span>
+                </div>
+              </article>
+              <article class="epg-item">
+                <div class="epg-time">23:30</div>
+                <div class="epg-text">
+                  <strong>晚间综艺</strong>
+                  <span>BTV</span>
+                </div>
+              </article>
             </div>
           </section>
         </main>

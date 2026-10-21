@@ -27,7 +27,7 @@ body {
   min-height: 100vh;
   font-family: "Inter", sans-serif;
   background:
-    radial-gradient(circle at top left, rgba(99, 166, 255, 0.2), transparent 28%),
+    radial-gradient(circle at top left, rgba(99, 166, 255, 0.18), transparent 25%),
     linear-gradient(180deg, #06131d 0%, #0b1726 100%);
   color: var(--text);
 }
@@ -44,9 +44,9 @@ button {
 }
 
 .app-shell {
-  max-width: 1500px;
+  max-width: 1540px;
   margin: 0 auto;
-  padding: 26px 30px 40px;
+  padding: 24px 26px 32px;
 }
 
 .topbar {
@@ -55,9 +55,9 @@ button {
   justify-content: space-between;
   gap: 18px;
   padding: 18px 22px;
+  border-radius: 22px;
   background: rgba(11, 19, 29, 0.72);
   border: 1px solid var(--line);
-  border-radius: 22px;
   box-shadow: var(--shadow);
   backdrop-filter: blur(14px);
 }
@@ -71,9 +71,9 @@ button {
 .brand-mark {
   width: 44px;
   height: 44px;
-  border-radius: 12px;
   display: grid;
   place-items: center;
+  border-radius: 12px;
   background: linear-gradient(135deg, var(--accent), var(--accent-strong));
   color: #fff;
   font-weight: 800;
@@ -102,8 +102,8 @@ button {
 
 .nav-item {
   padding: 9px 14px;
-  color: var(--muted);
   text-decoration: none;
+  color: var(--muted);
   border-radius: 10px;
   transition: 0.2s ease;
 }
@@ -129,16 +129,16 @@ button {
   padding: 0 12px;
   border: 1px solid var(--line);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255,255,255,0.02);
   color: var(--muted);
 }
 
 .search-box input {
   width: 100%;
-  background: transparent;
   border: none;
-  outline: none;
+  background: transparent;
   color: var(--text);
+  outline: none;
 }
 
 .user-pill,
@@ -147,7 +147,7 @@ button {
 .player-actions button {
   border: 1px solid var(--line);
   border-radius: 11px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255,255,255,0.03);
   color: var(--text);
   transition: transform 0.2s ease, filter 0.2s ease;
 }
@@ -164,9 +164,9 @@ button {
 }
 
 .filter-btn.active {
-  color: var(--text);
   background: rgba(99, 166, 255, 0.12);
   border-color: rgba(99, 166, 255, 0.38);
+  color: var(--text);
 }
 
 .user-pill:hover,
@@ -177,7 +177,7 @@ button {
   filter: brightness(1.06);
 }
 
-.live-layout {
+.broadcast-layout {
   display: grid;
   grid-template-columns: 340px minmax(0, 1fr);
   gap: 22px;
@@ -197,7 +197,7 @@ button {
 }
 
 .panel-header,
-.mini-header {
+.epg-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -205,7 +205,7 @@ button {
 }
 
 .panel-header h2,
-.mini-header h3 {
+.epg-header h3 {
   margin: 8px 0 0;
   font-size: 1.2rem;
 }
@@ -242,7 +242,7 @@ button {
   gap: 12px;
   padding: 12px 10px;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.025);
+  background: rgba(255,255,255,0.025);
   border: 1px solid transparent;
   transition: 0.2s ease;
 }
@@ -259,9 +259,9 @@ button {
 .channel-logo {
   width: 42px;
   height: 42px;
-  border-radius: 12px;
   display: grid;
   place-items: center;
+  border-radius: 12px;
   color: #fff;
   font-weight: 700;
   font-size: 0.8rem;
@@ -295,11 +295,11 @@ button {
   padding: 18px;
 }
 
-.featured-card {
-  padding: 14px 14px 18px;
+.feature-panel {
+  padding: 14px 14px 16px;
   border: 1px solid var(--line);
   border-radius: 22px;
-  background: rgba(255, 255, 255, 0.016);
+  background: rgba(255,255,255,0.016);
 }
 
 .player-header {
@@ -344,16 +344,16 @@ button {
 
 .video-shell {
   position: relative;
-  border-radius: 18px;
-  overflow: hidden;
+  border-radius: 20px;
   border: 1px solid rgba(255,255,255,0.08);
   background: linear-gradient(180deg, #0a0f16, #121b29);
+  overflow: hidden;
 }
 
 .video-player {
   display: block;
   width: 100%;
-  min-height: 540px;
+  min-height: 560px;
   background: radial-gradient(circle at center, rgba(99,166,255,0.18), rgba(10,15,22,0.9));
 }
 
@@ -367,15 +367,15 @@ button {
 }
 
 .play-indicator {
-  width: 90px;
-  height: 90px;
+  width: 92px;
+  height: 92px;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255,255,255,0.11);
   border: 1px solid rgba(255,255,255,0.18);
-  font-size: 2rem;
   color: #fff;
+  font-size: 2rem;
 }
 
 .video-info {
@@ -384,15 +384,19 @@ button {
   right: 0;
   bottom: 0;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 18px 18px 16px;
-  background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.64));
+  padding: 18px 20px 16px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.62));
+}
+
+.info-left {
+  min-width: 0;
 }
 
 .channel-title {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 700;
 }
 
@@ -400,6 +404,21 @@ button {
   color: var(--muted);
   font-size: 0.8rem;
   margin-top: 5px;
+}
+
+.info-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chip {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(80, 213, 154, 0.14);
+  color: #7ef0b5;
+  font-size: 0.72rem;
+  font-weight: 700;
 }
 
 .live-time {
@@ -428,112 +447,71 @@ button {
   color: #ffd8ad;
 }
 
-.content-row {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 18px;
+.epg-panel {
   margin-top: 18px;
-}
-
-.mini-panel {
-  padding: 16px;
-  border-radius: 18px;
+  padding: 18px 18px 10px;
   border: 1px solid var(--line);
+  border-radius: 20px;
   background: rgba(255,255,255,0.02);
 }
 
-.mini-header a {
+.epg-header a {
   color: #b7d3ff;
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
 }
 
-.schedule-list {
+.epg-grid {
   display: grid;
-  gap: 12px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
   margin-top: 16px;
 }
 
-.schedule-item {
+.epg-item {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 12px;
-  border-radius: 12px;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 12px;
   border: 1px solid var(--line);
+  border-radius: 14px;
   background: rgba(255,255,255,0.02);
+  min-height: 110px;
 }
 
-.schedule-time {
-  display: inline-block;
-  min-width: 54px;
+.epg-item.active {
+  background: rgba(99, 166, 255, 0.08);
+  border-color: rgba(99, 166, 255, 0.38);
+}
+
+.epg-time {
+  color: #ffbe7a;
   font-weight: 700;
-  color: #ffbd7b;
+  font-size: 1.05rem;
 }
 
-.schedule-item strong {
-  display: block;
-  margin-bottom: 4px;
+.epg-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.schedule-item small {
+.epg-text strong {
+  font-size: 0.96rem;
+}
+
+.epg-text span {
   color: var(--muted);
+  font-size: 0.75rem;
 }
 
-.recommend-list {
-  display: grid;
-  gap: 12px;
-  margin-top: 16px;
-}
-
-.recommend-item {
-  display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 12px;
-  align-items: center;
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: rgba(255,255,255,0.02);
-}
-
-.recommend-thumb {
-  width: 72px;
-  height: 54px;
-  border-radius: 12px;
-  background-size: cover;
-  background-position: center;
-}
-
-.thumb-one {
-  background: linear-gradient(135deg, rgba(99,166,255,0.8), rgba(37,58,110,0.9));
-}
-
-.thumb-two {
-  background: linear-gradient(135deg, rgba(255,159,67,0.8), rgba(149,86,40,0.8));
-}
-
-.thumb-three {
-  background: linear-gradient(135deg, rgba(79,211,164,0.8), rgba(26,99,72,0.8));
-}
-
-.recommend-item strong,
-.recommend-item small {
-  display: block;
-}
-
-.recommend-item small {
-  margin-top: 4px;
-  color: var(--muted);
-}
-
-@media (max-width: 980px) {
-  .live-layout {
+@media (max-width: 1100px) {
+  .broadcast-layout {
     grid-template-columns: 1fr;
   }
 
-  .content-row {
-    grid-template-columns: 1fr;
+  .epg-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -567,7 +545,11 @@ button {
     flex-wrap: wrap;
   }
 
+  .epg-grid {
+    grid-template-columns: 1fr;
+  }
+
   .video-player {
-    min-height: 320px;
+    min-height: 340px;
   }
 }
